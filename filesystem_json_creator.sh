@@ -23,12 +23,13 @@ VIDEO_LIST="["; # Open JSON Array Braces
 
 
 # Make for loop iterate over each line rather than over each space
-export IFS=$'\n'
+export IFS=$"
+"
 for i in $FILES_AND_FOLDERS
 do
     if [ -d "${i}" ] ; then
     #echo "$i is a directory";
-        if [[ "$1" == "${i}" ]]; then
+        if [ "$1" = "${i}" ]; then
             #echo "Skipping $i";
             sleep 1
         else
@@ -46,15 +47,15 @@ do
     fi
 done
 
-if [[ $VIDEO_DIRECTORY != "[" ]]; then 
-    VIDEO_DIRECTORY=${VIDEO_DIRECTORY::-1}"]";
+if [ $VIDEO_DIRECTORY != "[" ]; then 
+    VIDEO_DIRECTORY=$(expr substr $VIDEO_DIRECTORY 1 "$((${#VIDEO_DIRECTORY}-1))");
 else        
     VIDEO_DIRECTORY="[]";
 fi
 
 
-if [[ $VIDEO_LIST != "[" ]]; then 
-    VIDEO_LIST=${VIDEO_LIST::-1}"]";
+if [ $VIDEO_LIST != "[" ]; then 
+    VIDEO_LIST=$(expr substr $VIDEO_LIST 1 "$((${#VIDEO_LIST}-1))");
 else        
     VIDEO_LIST="[]";
 fi
