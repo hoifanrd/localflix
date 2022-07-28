@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Updated sh"
+
 if [ -z "$1" ]
 then
     echo "Videos directory not provided"
@@ -48,14 +50,14 @@ do
 done
 
 if [ $VIDEO_DIRECTORY != "[" ]; then 
-    VIDEO_DIRECTORY=$(expr substr $VIDEO_DIRECTORY 1 "$((${#VIDEO_DIRECTORY}-1))");
+    VIDEO_DIRECTORY="$(expr substr $VIDEO_DIRECTORY 1 "$((${#VIDEO_DIRECTORY}-1))")]";
 else        
     VIDEO_DIRECTORY="[]";
 fi
 
 
 if [ $VIDEO_LIST != "[" ]; then 
-    VIDEO_LIST=$(expr substr $VIDEO_LIST 1 "$((${#VIDEO_LIST}-1))");
+    VIDEO_LIST="$(expr substr $VIDEO_LIST 1 "$((${#VIDEO_LIST}-1))")]";
 else        
     VIDEO_LIST="[]";
 fi
