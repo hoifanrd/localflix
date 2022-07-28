@@ -28,7 +28,7 @@ for i in $FILES_AND_FOLDERS
 do
     if [ -d "${i}" ] ; then
     #echo "$i is a directory";
-        if [ "$1" == "${i}" ]; then
+        if [[ "$1" == "${i}" ]]; then
             #echo "Skipping $i";
             sleep 1
         else
