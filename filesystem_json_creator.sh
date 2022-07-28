@@ -50,14 +50,14 @@ do
 done
 
 if [ $VIDEO_DIRECTORY != "[" ]; then 
-    VIDEO_DIRECTORY="$(expr substr $VIDEO_DIRECTORY 1 "$((${#VIDEO_DIRECTORY}-1))")]";
+    VIDEO_DIRECTORY="$(echo "${VIDEO_DIRECTORY}" | sed 's/.$//')]";
 else        
     VIDEO_DIRECTORY="[]";
 fi
 
 
 if [ $VIDEO_LIST != "[" ]; then 
-    VIDEO_LIST="$(expr substr $VIDEO_LIST 1 "$((${#VIDEO_LIST}-1))")]";
+    VIDEO_LIST="$(echo "${VIDEO_LIST}" | sed 's/.$//')]";
 else        
     VIDEO_LIST="[]";
 fi
